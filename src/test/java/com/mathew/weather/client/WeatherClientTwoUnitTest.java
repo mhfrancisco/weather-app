@@ -2,6 +2,7 @@ package com.mathew.weather.client;
 
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.util.ReflectionTestUtils.setField;
 
 import com.mathew.weather.model.WeatherClientTwoResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,8 +27,6 @@ public class WeatherClientTwoUnitTest {
 
     @BeforeEach
     public void setup() {
-        // Inject mock values for @Value fields
-        // These are private, so we use reflection or a subclass
         weatherClientTwo = new WeatherClientTwo(restTemplate);
         setField(weatherClientTwo, "url", "https://api.openweathermap.org/data/2.5/");
         setField(weatherClientTwo, "key", "fake-api-key");
@@ -51,16 +50,5 @@ public class WeatherClientTwoUnitTest {
 
         assertNotNull(result);
         verify(restTemplate, times(1)).getForEntity(uri, WeatherClientTwoResponse.class);
-    }
-
-    // Utility method to set private fields via reflection
-    private void setField(Object target, String fieldName, Object value) {
-        try {
-            java.lang.reflect.Field field = target.getClass().getDeclaredField(fieldName);
-            field.setAccessible(true);
-            field.set(target, value);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 }
