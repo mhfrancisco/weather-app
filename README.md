@@ -7,16 +7,16 @@ This is a weather service application
 
 ## Environment Variables
 
-To run this project, you will need to add key variables to the application.yaml file
+To run this project, you will need to add api keys to the key variables of the application.yaml file as indicated below
 
 ```
 weatherstack:
   url: http://api.weatherstack.com/
-  key: 
+  key: ADD API KEY HERE
 
 openweathermap:
   url: http://api.openweathermap.org/data/2.5/
-  key: 
+  key: ADD API KEY HERE
 ```
 
 
@@ -65,4 +65,12 @@ Start the server
 | :-------- | :------- | :--------------------------------- |
 | `name`    | `string` | Name of the city for weather data  |
 
+
+
+## Things for improvement
+
+- Linting tool
+- Security like JWT
+- Yaml files for different environments
+- Containerization (Docker)
 
