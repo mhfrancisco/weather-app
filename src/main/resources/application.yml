@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: weather-app
+
+weatherstack:
+  url: http://api.weatherstack.com/
+  key: 6912518bd2664042509d1ce502f980ad
+
+openweathermap:
+  url: http://api.openweathermap.org/data/2.5/
+  key: 8a4c6e800ff3d0192eee3bf46aa42afd
+
+caching:
+  spring:
+    # 3 Seconds to retain cache data
+    weatherTTL: 3000
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true
+      # Failure rate threshold percentage
+      failureRateThreshold: 10
+      # Minimum number of call attempts before rate threshold percentage is checked.
+      ringBufferSizeInClosedState: 10
+      # How long to wait until switching to half open.
+      waitDurationInOpenState: 3s
+      # Number of successful requests before moving back to closed from half open.
+      ringBufferSizeInHalfOpenState: 5
+      # Exceptions that do not count towards opening the circuit.
+      ignoreExceptions:
+         # Ignore 4xx exceptions.
+         - org.springframework.web.client.HttpClientErrorException
+  instances:
+    weatherService:
+      baseConfig: default
