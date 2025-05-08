@@ -41,7 +41,7 @@ public class WeatherService {
         return createWeather(windSpeed, (int) temp);
     }
 
-    private Weather fallbackWeather(final String city, final Throwable e) {
+    public Weather fallbackWeather(final String city, final Throwable e) {
         logger.error(e.getMessage(), e);
         WeatherClientOneResponse response = weatherClientOne.getWeather(city);
         Current current = response.getCurrent();
