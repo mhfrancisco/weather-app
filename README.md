@@ -3,6 +3,23 @@
 This is a weather service application
 
 
+
+
+## Environment Variables
+
+To run this project, you will need to add key variables to the application.yaml file
+
+```
+weatherstack:
+  url: http://api.weatherstack.com/
+  key: 
+
+openweathermap:
+  url: http://api.openweathermap.org/data/2.5/
+  key: 
+```
+
+
 ## Run Locally
 
 Clone the project

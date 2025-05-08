@@ -4,11 +4,11 @@ spring:
 
 weatherstack:
   url: http://api.weatherstack.com/
-  key: 6912518bd2664042509d1ce502f980ad
+  key:
 
 openweathermap:
   url: http://api.openweathermap.org/data/2.5/
-  key: 8a4c6e800ff3d0192eee3bf46aa42afd
+  key:
 
 caching:
   spring:
