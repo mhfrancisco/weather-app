@@ -69,7 +69,6 @@ Start the server
 
 ## Things for improvement
 
-- Unit test and code coverage
 - Linting tool
 - Security like JWT
 - Yaml files for different environments
