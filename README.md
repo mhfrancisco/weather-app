@@ -66,3 +66,11 @@ Start the server
 | `name`    | `string` | Name of the city for weather data  |
 
 
+
+## Things for improvement
+
+- Unit test and code coverage
+- Linting tool
+- Yaml files for different environments
+- Containerization (Docker)
+
